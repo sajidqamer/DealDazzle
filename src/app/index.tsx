@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, ImageBackground, StyleSheet } from 'react-native';
 import React from 'react';
 import Button from '../components/Button';
 import { Link, Redirect } from 'expo-router';
@@ -20,6 +20,11 @@ const index = () => {
   //    return <Redirect href={'/(user)'} />;
   //  }
   return (
+     <ImageBackground
+      source={{ uri: 'https://wallpapers.com/images/hd/android-food-background-1440-x-2560-x8n0snptguuoe5ha.jpg' }}
+      style={styles.backgroundImage}
+      resizeMode="cover"
+    >
     <View style={{ flex: 1, justifyContent: 'center', padding: 10 }}>
       <Link href={'/(user)'} asChild>
         <Button text="User" />
@@ -28,8 +33,17 @@ const index = () => {
         <Button text="Admin" />
       </Link>
       <Button onPress={() => supabase.auth.signOut()} text="Sign out" />
-    </View>
+      </View>
+      </ImageBackground>
   );
 };
+
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  }
+});
 
 export default index;

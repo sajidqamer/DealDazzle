@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Alert, ImageBackground } from 'react-native';
 import React, { useState } from 'react';
 import Button from '../../components/Button';
 import Colors from '../../constants/Colors';
@@ -22,6 +22,11 @@ async function signInWithEmail() {
 }
 
   return (
+    <ImageBackground
+          source={{ uri: 'https://wallpapers.com/images/hd/android-food-background-1440-x-2560-x8n0snptguuoe5ha.jpg' }}
+          style={styles.backgroundImage}
+          resizeMode="cover"
+        >
     <View style={styles.container}>
       <Stack.Screen options={{ title: 'Sign in' }} />
 
@@ -50,11 +55,17 @@ async function signInWithEmail() {
       <Link href="/sign-up" style={styles.textButton}>
         Create an account
       </Link>
-    </View>
+      </View>
+      </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
   container: {
     padding: 20,
     justifyContent: 'center',
